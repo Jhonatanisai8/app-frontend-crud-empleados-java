@@ -25,13 +25,13 @@ const ListaEmpleados = () => {
   return (
     <div className="container">
       <h2>Lista de Empleados:</h2>
-      <table className="table">
+      <table className="table table-bordered">
         <thead>
         <tr>
-          <td>ID</td>
-          <td>NOMBRE</td>
-          <td>APELLIDO</td>
-          <td>EMAIL</td>
+          <th>ID</th>
+          <th>NOMBRE</th>
+          <th>APELLIDO</th>
+          <th>EMAIL</th>
         </tr>
         </thead>
         <tbody>
