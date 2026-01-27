@@ -1,27 +1,16 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
+import {listaEmpleados} from "../services/EmpleadoService.js";
 
 const ListaEmpleados = () => {
-
-  const miData = [
-    {
-      "idEmpleado": 1,
-      "nombre": "Samir Elias",
-      "apellido": "Correa Salvador",
-      "email": "samirelias@gmail.com",
-    },
-    {
-      "idEmpleado": 2,
-      "nombre": "Elvis Alonso",
-      "apellido": "Correa Salvador",
-      "email": "elvisalonso@gmail.com",
-    },
-    {
-      "idEmpleado": 3,
-      "nombre": "Diana Susena",
-      "apellido": "Correa Salvador",
-      "email": "dianasusena@gmail.com",
-    }
-  ]
+  const [empleados, setEmpleados] = useState([])
+  useEffect(() => {
+    listaEmpleados()
+      .then((response) => {
+        setEmpleados(response.data)
+      }).catch((error) => {
+      console.log(error)
+    })
+  }, []);
   return (
     <div className="container">
       <h2>Lista de Empleados:</h2>
@@ -36,9 +25,9 @@ const ListaEmpleados = () => {
         </thead>
         <tbody>
         {
-          miData.map(empleado =>
-            <tr key={empleado.idEmpleado}>
-              <td>{empleado.idEmpleado}</td>
+          empleados.map(empleado =>
+            <tr key={empleado.id}>
+              <td>{empleado.id}</td>
               <td>{empleado.nombre}</td>
               <td>{empleado.apellido}</td>
               <td>{empleado.email}</td>
