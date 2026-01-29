@@ -1,16 +1,22 @@
 import './App.css'
-import HolaMundo from "./HolaMundo.jsx";
 import ListaEmpleados from "./components/ListaEmpleados.jsx";
 import Header from "./components/Header.jsx";
 import Footer from "./components/Footer.jsx";
+import {BrowserRouter, Routes, Route} from "react-router-dom";
 
 function App() {
 
   return (
     <div className="App">
-      <Header></Header>
-      <ListaEmpleados></ListaEmpleados>
-      <Footer></Footer>
+      <BrowserRouter>
+        <Header>
+        </Header>
+        <Routes>
+          <Route path='/' element={<ListaEmpleados/>}></Route>
+          <Route path='/empleados' element={<ListaEmpleados/>}></Route>
+        </Routes>
+        <Footer></Footer>
+      </BrowserRouter>
     </div>
   )
 }
