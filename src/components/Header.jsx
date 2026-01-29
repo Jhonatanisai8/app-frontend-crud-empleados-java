@@ -2,8 +2,24 @@ import React from 'react'
 
 const Header = () => {
   return (
-    <nav className="navbar bg-dark border-bottom border-body justify-content-center" data-bs-theme="dark">
-      <a className="texto-title navbar-brand text-uppercase fw-semibold fs-1" href="#">Mi app React + Java</a>
+    <nav className="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
+      <div className="container-fluid">
+        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03"
+                aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+          <span className="navbar-toggler-icon"></span>
+        </button>
+        <a className="navbar-brand">Mi app React + Java</a>
+        <div className="collapse navbar-collapse" id="navbarTogglerDemo03">
+          <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+            <li className="nav-item">
+              <a className="nav-link active" aria-current="page" href="/">Home</a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link active" aria-current="page" href="/empleados">Empleados</a>
+            </li>
+          </ul>
+        </div>
+      </div>
     </nav>
 
   )

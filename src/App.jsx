@@ -3,6 +3,7 @@ import ListaEmpleados from "./components/ListaEmpleados.jsx";
 import Header from "./components/Header.jsx";
 import Footer from "./components/Footer.jsx";
 import {BrowserRouter, Routes, Route} from "react-router-dom";
+import Bienvenida from "./components/Bienvenida.jsx";
 
 function App() {
 
@@ -12,7 +13,7 @@ function App() {
         <Header>
         </Header>
         <Routes>
-          <Route path='/' element={<ListaEmpleados/>}></Route>
+          <Route path='/' element={<Bienvenida/>}></Route>
           <Route path='/empleados' element={<ListaEmpleados/>}></Route>
         </Routes>
         <Footer></Footer>

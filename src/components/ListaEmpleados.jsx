@@ -12,7 +12,7 @@ const ListaEmpleados = () => {
     })
   }, []);
   return (
-    <div className="container">
+    <div className="container mt-3">
       <h2>Lista de Empleados:</h2>
       <table className="table table-bordered">
         <thead>
