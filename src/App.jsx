@@ -4,6 +4,7 @@ import Header from "./components/Header.jsx";
 import Footer from "./components/Footer.jsx";
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 import Bienvenida from "./components/Bienvenida.jsx";
+import Empleado from "./components/Empleado.jsx";
 
 function App() {
 
@@ -15,6 +16,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Bienvenida/>}></Route>
           <Route path='/empleados' element={<ListaEmpleados/>}></Route>
+          <Route path='/agregar-empleado' element={<Empleado/>}></Route>
         </Routes>
         <Footer></Footer>
       </BrowserRouter>

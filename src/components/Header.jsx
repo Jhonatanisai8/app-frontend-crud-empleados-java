@@ -1,6 +1,14 @@
 import React from 'react'
+import {useNavigate} from 'react-router-dom'
 
 const Header = () => {
+
+  const navigator = useNavigate()
+
+  function agregarEmpleado() {
+    navigator("/agregar-empleado")
+  }
+
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
       <div className="container-fluid">
@@ -16,6 +24,10 @@ const Header = () => {
             </li>
             <li className="nav-item">
               <a className="nav-link active" aria-current="page" href="/empleados">Empleados</a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link active" aria-current="page" href="/agregar-empleado" onClick={agregarEmpleado}>Agregar
+                Empleado</a>
             </li>
           </ul>
         </div>
