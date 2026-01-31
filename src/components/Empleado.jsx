@@ -13,6 +13,16 @@ const Empleado = () => {
     setApellido(e.target.value)
   }
 
+  function manejarEmail(e) {
+    setEmail(e.target.value)
+  }
+
+  function guardarEmpleado(e) {
+    e.preventDefault()
+    const empleado = {nombre, apellido, email}
+    console.log(empleado)
+  }
+
   return (
     <div className="container mt-5">
       <div className="row">
@@ -30,7 +40,7 @@ const Empleado = () => {
                 </label>
                 <input type="text"
                        className="form-control"
-                       id="input-email"
+                       id="input-nombre"
                        placeholder="Ingresa el nombre del empleado"
                        name='nombre'
                        value={nombre}
@@ -40,32 +50,40 @@ const Empleado = () => {
               <div className="mb-2">
                 <label
                   className="form-label">
-                  Nombres
+                  Apellidos
                 </label>
                 <input type="text"
                        className="form-control"
-                       id="input-email"
+                       id="input-apellido"
                        placeholder="Ingresa los apellidos del empleado"
                        name='apellido'
                        value={apellido}
                        onChange={manejarApellido}
                 />
               </div>
+              <div className="mb-2">
+                <label
+                  className="form-label">
+                  Email
+                </label>
+                <input type="email"
+                       className="form-control"
+                       id="input-email"
+                       placeholder="Ingresa el email del empleado"
+                       name='email'
+                       value={email}
+                       onChange={manejarEmail}
+                />
+              </div>
 
-              <div className="mb-3">
-                <label htmlFor="exampleInputPassword1" className="form-label">Password</label>
-                <input type="password" className="form-control" id="exampleInputPassword1"/>
-              </div>
-              <div className="mb-3 form-check">
-                <input type="checkbox" className="form-check-input" id="exampleCheck1"/>
-                <label className="form-check-label" htmlFor="exampleCheck1">Check me out</label>
-              </div>
-              <button type="submit" className="btn btn-primary">Submit</button>
+              <button type="submit"
+                      className="btn btn-primary"
+                      onClick={guardarEmpleado}>
+                Guardar Empleado
+              </button>
             </form>
           </div>
-          <div className="card-footer text-muted">
-            2 days ago
-          </div>
+
         </div>
       </div>
     </div>
