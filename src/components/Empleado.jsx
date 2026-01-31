@@ -14,10 +14,19 @@ const Empleado = () => {
           <div className="card-body">
             <h5 className="card-title">REGISTRO DE EMPLEADO</h5>
             <form>
-              <div className="mb-3">
-                <label htmlFor="exampleInputEmail1" className="form-label">Nombres</label>
-                <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"/>
-                <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
+              <div className="mb-2">
+                <label
+                  className="form-label">
+                  Nombres
+                </label>
+                <input type="text"
+                       className="form-control"
+                       id="input-email"
+                       placeholder="Ingresa el nombre del empleado"
+                       name='nombre'
+                       value={nombre}
+                       onChange={manejarNombre}
+                />
               </div>
               <div className="mb-3">
                 <label htmlFor="exampleInputPassword1" className="form-label">Password</label>
