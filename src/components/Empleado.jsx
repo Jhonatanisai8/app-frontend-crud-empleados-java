@@ -9,6 +9,10 @@ const Empleado = () => {
     setNombre(e.target.value)
   }
 
+  function manejarApellido(e) {
+    setApellido(e.target.value)
+  }
+
   return (
     <div className="container mt-5">
       <div className="row">
@@ -33,6 +37,21 @@ const Empleado = () => {
                        onChange={manejarNombre}
                 />
               </div>
+              <div className="mb-2">
+                <label
+                  className="form-label">
+                  Nombres
+                </label>
+                <input type="text"
+                       className="form-control"
+                       id="input-email"
+                       placeholder="Ingresa los apellidos del empleado"
+                       name='apellido'
+                       value={apellido}
+                       onChange={manejarApellido}
+                />
+              </div>
+
               <div className="mb-3">
                 <label htmlFor="exampleInputPassword1" className="form-label">Password</label>
                 <input type="password" className="form-control" id="exampleInputPassword1"/>
