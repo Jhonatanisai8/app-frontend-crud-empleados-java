@@ -4,6 +4,11 @@ const Empleado = () => {
   const [nombre, setNombre] = useState()
   const [apellido, setApellido] = useState()
   const [email, setEmail] = useState()
+
+  function manejarNombre(e) {
+    setNombre(e.target.value)
+  }
+
   return (
     <div className="container mt-5">
       <div className="row">
