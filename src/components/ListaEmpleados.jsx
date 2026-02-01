@@ -3,11 +3,13 @@ import {listaEmpleados} from "../services/EmpleadoService.js";
 
 const ListaEmpleados = () => {
   const [empleados, setEmpleados] = useState([])
+  const [error, setError] = useState(null);
   useEffect(() => {
     listaEmpleados()
       .then((response) => {
         setEmpleados(response.data)
       }).catch((error) => {
+      setError("No se pudo conectar con el servidor-")
       console.log(error)
     })
   }, []);
@@ -25,14 +27,22 @@ const ListaEmpleados = () => {
         </thead>
         <tbody>
         {
-          empleados.map(empleado =>
-            <tr key={empleado.id}>
-              <td>{empleado.id}</td>
-              <td>{empleado.nombre}</td>
-              <td>{empleado.apellido}</td>
-              <td>{empleado.email}</td>
-            </tr>)
-        }
+          error ? (
+            <tr>
+              <td colSpan="4" className="text-center">
+                <strong>Error: </strong>{error}
+              </td>
+            </tr>
+          ) : (
+            empleados.map(empleado => (
+              <tr key={empleado.id}>
+                <td>{empleado.id}</td>
+                <td>{empleado.nombre}</td>
+                <td>{empleado.apellido}</td>
+                <td>{empleado.email}</td>
+              </tr>
+            ))
+          )}
         </tbody>
       </table>
     </div>

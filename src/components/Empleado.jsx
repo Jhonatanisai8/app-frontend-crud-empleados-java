@@ -5,18 +5,6 @@ const Empleado = () => {
   const [apellido, setApellido] = useState()
   const [email, setEmail] = useState()
 
-  function manejarNombre(e) {
-    setNombre(e.target.value)
-  }
-
-  function manejarApellido(e) {
-    setApellido(e.target.value)
-  }
-
-  function manejarEmail(e) {
-    setEmail(e.target.value)
-  }
-
   function guardarEmpleado(e) {
     e.preventDefault()
     const empleado = {nombre, apellido, email}
@@ -44,7 +32,7 @@ const Empleado = () => {
                        placeholder="Ingresa el nombre del empleado"
                        name='nombre'
                        value={nombre}
-                       onChange={manejarNombre}
+                       onChange={(e) => setNombre(e.target.value)}
                 />
               </div>
               <div className="mb-2">
@@ -58,7 +46,7 @@ const Empleado = () => {
                        placeholder="Ingresa los apellidos del empleado"
                        name='apellido'
                        value={apellido}
-                       onChange={manejarApellido}
+                       onChange={(e) => setApellido(e.target.value)}
                 />
               </div>
               <div className="mb-2">
@@ -72,7 +60,7 @@ const Empleado = () => {
                        placeholder="Ingresa el email del empleado"
                        name='email'
                        value={email}
-                       onChange={manejarEmail}
+                       onChange={(e) => setEmail(e.target.value)}
                 />
               </div>
 
