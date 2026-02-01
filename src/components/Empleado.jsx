@@ -1,14 +1,22 @@
 import React, {useState} from "react";
+import {crearEmpleado} from "../services/EmpleadoService.js";
+import {useNavigate} from "react-router-dom";
 
 const Empleado = () => {
   const [nombre, setNombre] = useState()
   const [apellido, setApellido] = useState()
   const [email, setEmail] = useState()
 
+  const navigator = useNavigate()
+
   function guardarEmpleado(e) {
     e.preventDefault()
     const empleado = {nombre, apellido, email}
-    console.log(empleado)
+    crearEmpleado(empleado)
+      .then(response => {
+        console.log(response.data)
+        navigator("/empleados")
+      })
   }
 
   return (
