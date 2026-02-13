@@ -13,6 +13,12 @@ const ListaEmpleados = () => {
       console.log(error)
     })
   }, []);
+
+  function actualizarEmpleado(id) {
+    navigator(`/editar-empleado/${id}`)
+
+  }
+
   return (
     <div className="container mt-3">
       <h2>Lista de Empleados:</h2>
