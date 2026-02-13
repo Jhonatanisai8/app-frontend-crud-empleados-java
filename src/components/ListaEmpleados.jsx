@@ -23,6 +23,7 @@ const ListaEmpleados = () => {
           <th>NOMBRE</th>
           <th>APELLIDO</th>
           <th>EMAIL</th>
+          <th>ACCIONES</th>
         </tr>
         </thead>
         <tbody>
@@ -40,6 +41,13 @@ const ListaEmpleados = () => {
                 <td>{empleado.nombre}</td>
                 <td>{empleado.apellido}</td>
                 <td>{empleado.email}</td>
+                <td>
+                  <button type="button" className=" btn btn-primary"
+                          onClick={() => actualizarEmpleado(empleado.id)}
+                  >
+                    Editar
+                  </button>
+                </td>
               </tr>
             ))
           )}
