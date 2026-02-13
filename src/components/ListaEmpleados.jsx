@@ -16,8 +16,8 @@ const ListaEmpleados = () => {
 
   function actualizarEmpleado(id) {
     navigator(`/editar-empleado/${id}`)
-
   }
+
 
   return (
     <div className="container mt-3">

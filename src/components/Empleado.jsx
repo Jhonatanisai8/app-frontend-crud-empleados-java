@@ -3,20 +3,56 @@ import {crearEmpleado} from "../services/EmpleadoService.js";
 import {useNavigate} from "react-router-dom";
 
 const Empleado = () => {
-  const [nombre, setNombre] = useState()
-  const [apellido, setApellido] = useState()
-  const [email, setEmail] = useState()
+  const [nombre, setNombre] = useState('')
+  const [apellido, setApellido] = useState('')
+  const [email, setEmail] = useState('')
 
+  const [errores, setErrores] = useState({
+    nombre: "",
+    apellido: "",
+    email: "",
+  })
   const navigator = useNavigate()
 
   function guardarEmpleado(e) {
     e.preventDefault()
-    const empleado = {nombre, apellido, email}
-    crearEmpleado(empleado)
-      .then(response => {
-        console.log(response.data)
-        navigator("/empleados")
-      })
+    if (validarFormulario()) {
+      const empleado = {nombre, apellido, email}
+      crearEmpleado(empleado)
+        .then(response => {
+          console.log(response.data)
+          navigator("/empleados")
+        })
+    }
+  }
+
+  function validarFormulario() {
+    let valido = true
+    const erroresCopy = {...errores}
+    if (nombre.trim()) {
+      erroresCopy.nombre = ""
+    } else {
+      erroresCopy.nombre = "El nombre es requerido"
+      valido = false
+    }
+
+    if (apellido.trim()) {
+      erroresCopy.apellido = ""
+    } else {
+      erroresCopy.apellido = "El apellido es requerido"
+      valido = false
+    }
+
+    if (email.trim()) {
+      erroresCopy.email = ""
+    } else {
+      erroresCopy.email = "El email es requerido"
+      valido = false
+    }
+
+    setErrores(erroresCopy)
+    return valido
+
   }
 
   return (
