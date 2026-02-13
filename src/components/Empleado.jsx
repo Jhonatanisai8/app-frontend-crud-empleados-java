@@ -30,21 +30,21 @@ const Empleado = () => {
     let valido = true
     const erroresCopy = {...errores}
     if (nombre.trim()) {
-      erroresCopy.nombre = ""
+      erroresCopy.nombre = ''
     } else {
       erroresCopy.nombre = "El nombre es requerido"
       valido = false
     }
 
     if (apellido.trim()) {
-      erroresCopy.apellido = ""
+      erroresCopy.apellido = ''
     } else {
       erroresCopy.apellido = "El apellido es requerido"
       valido = false
     }
 
     if (email.trim()) {
-      erroresCopy.email = ""
+      erroresCopy.email = ''
     } else {
       erroresCopy.email = "El email es requerido"
       valido = false
@@ -71,13 +71,16 @@ const Empleado = () => {
                   Nombres
                 </label>
                 <input type="text"
-                       className="form-control"
+                       className={`form-control ${errores.nombre ? 'is-invalid' : ''}`}
                        id="input-nombre"
                        placeholder="Ingresa el nombre del empleado"
                        name='nombre'
                        value={nombre}
                        onChange={(e) => setNombre(e.target.value)}
                 />
+                {errores.nombre && <div className="invalid-feedback">
+                  {errores.nombre}
+                </div>}
               </div>
               <div className="mb-2">
                 <label
@@ -85,13 +88,16 @@ const Empleado = () => {
                   Apellidos
                 </label>
                 <input type="text"
-                       className="form-control"
+                       className={`form-control ${errores.apellido ? 'is-invalid' : ''}`}
                        id="input-apellido"
                        placeholder="Ingresa los apellidos del empleado"
                        name='apellido'
                        value={apellido}
                        onChange={(e) => setApellido(e.target.value)}
                 />
+                {errores.apellido && <div className="invalid-feedback">
+                  {errores.apellido}
+                </div>}
               </div>
               <div className="mb-2">
                 <label
@@ -99,13 +105,16 @@ const Empleado = () => {
                   Email
                 </label>
                 <input type="email"
-                       className="form-control"
+                       className={`form-control ${errores.email ? 'is-invalid' : ''}`}
                        id="input-email"
                        placeholder="Ingresa el email del empleado"
                        name='email'
                        value={email}
                        onChange={(e) => setEmail(e.target.value)}
                 />
+                {errores.email && <div className="invalid-feedback">
+                  {errores.email}
+                </div>}
               </div>
 
               <button type="submit"
